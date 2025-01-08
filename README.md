@@ -21,7 +21,7 @@ The extraction automation includes a retry mechanism, which premise may be usefu
 The extraction of the Excel tables is within a foreach with the following parameters:
 
 - Path to the Source Excel within Sharepoint 
-- Sheet name where the table is stored in the source Sharepoint Excel
+- Sheet name where the source table is stored in the source Sharepoint Excel
 - Destination Schema name the user wants
 - Destination table name the user wants
 
@@ -31,7 +31,7 @@ The parameters above are given from a query to a parameter table in SQL Server d
 
 ![image](https://github.com/user-attachments/assets/b034b196-d495-480a-b554-dcd52f4e2239)
 
-But of course, the user may change the package so that the way these inputs are processed differ. This is just a useful example.
+where each field is a VARCHAR. Of course, the user may change the package so that the way these inputs are processed differ. This is just a useful example.
 
 If this package value is set to True:
 
@@ -40,6 +40,10 @@ If this package value is set to True:
 # 2. Important Notes
 
 Destination tables in SQL Server arrive with the datatype NVARCHAR (3000) always. This is hardcoded in the script-task "Extraction Server-SqlServer" and comes from the premise that it will be difficult to maintain data coherence within a hand-populated Excel for months or years. 
+
+The Excel path is found by looking at the Excel properties in the Sharepoint folder. This is the one you shall use to parametrize your input:
+
+![image](https://github.com/user-attachments/assets/5ddef99b-1569-4fef-939b-97759236e53e)
 
 By default, the OLEDB connection used in the "Extraction Server-SqlServer" tries to guess the data-types of each Excel header with the first 8 entries. This results in null or empty values in situations where there are mixed values (e.g. first 8 values are Int and 9th value is a VARCHAR). In order to solve this issue and load everything as a string we need to:
 

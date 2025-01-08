@@ -29,3 +29,11 @@ The parameters above are given from a query to a parameter table in SQL Server:
 
 But of course, the user may change the package so that the way these inputs are processed differ. This is just a useful example.
 
+If this package value is set to True:
+
+![image](https://github.com/user-attachments/assets/c549b6ef-49b3-4d34-b7c4-e2c7795b72b7)
+
+the package will retry up until 1000 times (you can change this threshold under MaximumErrorCount properties), otherwise it will retry up until the value set in the RetryCount value:
+
+![image](https://github.com/user-attachments/assets/e35587c1-6e4d-4096-98e2-bf27ffb7007a)
+

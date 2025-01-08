@@ -3,7 +3,7 @@
 ![image](https://github.com/user-attachments/assets/2ac7e7ce-fbb1-49c4-add3-6faee410296e)
 
 
-This code presents a template to dynamically extract tables from Excels stored in Sharepoint onto SQL Server tables, using a SQL Server Integration Services (SSIS) package.
+This code presents a template to dynamically extract tables from Excels stored in Sharepoint onto SQL Server tables, using a SQL Server Integration Services (SSIS) package. It takes a given table in an Excel sheet with headers and transforms it into an SQL Server table. This module is not optimal for big data, but for reference tables hand-written in Excel.
 
 We here assume the user has access to an OLEDB connection to an SQL Server database. Note that this connection is absent in this template, so you need to create it.
 
@@ -25,7 +25,7 @@ The extraction of the Excel tables is within a foreach with the following parame
 - Destination Schema name the user wants
 - Destination table name the user wants
 
-The parameters above are given from a query to a parameter table in SQL Server:
+The parameters above are given from a query to a parameter table in SQL Server defined in the following manner: 
 
 ![image](https://github.com/user-attachments/assets/739f2c34-1d62-41cf-a7a8-ba7b02c5e1f3)
 

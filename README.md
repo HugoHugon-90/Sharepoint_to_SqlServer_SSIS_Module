@@ -5,7 +5,7 @@ We here assume the user has access to an OLEDB connection to an SQL Server datab
 
 The extraction automation includes a retry mechanism, which premise may be useful in other SSIS applications, and it is constructed in two main procedures written as C# scripts:
 
-- Sharepoint/Excel->Local Server extraction:
+- Sharepoint/Excel->Local Server extraction (output path defined in local package variables):
   
 ![image](https://github.com/user-attachments/assets/b4602751-2c75-424c-b3cf-d36aea69623c)
 
@@ -14,4 +14,18 @@ The extraction automation includes a retry mechanism, which premise may be usefu
 ![image](https://github.com/user-attachments/assets/7715dbd1-7b85-4b78-909b-251d9415d8e9)
 
 
-The 
+The extraction of the Excel tables is within a foreach with the following parameters:
+
+- Path to the Source Excel within Sharepoint 
+- Sheet name where the table is stored in the source Sharepoint Excel
+- Destination Schema name the user wants
+- Destination table name the user wants
+
+The parameters above are given from a query to a parameter table in SQL Server:
+
+![image](https://github.com/user-attachments/assets/739f2c34-1d62-41cf-a7a8-ba7b02c5e1f3)
+
+![image](https://github.com/user-attachments/assets/b034b196-d495-480a-b554-dcd52f4e2239)
+
+But of course, the user may change the package so that the way these inputs are processed differ. This is just a useful example.
+
